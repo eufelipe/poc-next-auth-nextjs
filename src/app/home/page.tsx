@@ -54,7 +54,7 @@ export default function Home() {
       </p>
 
       <div className="mt-10 space-y-4 w-full max-w-sm">
-        <Link href="/auth/credentials-template">
+        <Link href="/api/auth/signin">
           <button className="btn btn-primary w-full mb-4">
             Login com Credenciais (Template Next Auth)
           </button>

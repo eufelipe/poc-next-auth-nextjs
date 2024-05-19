@@ -1,10 +1,10 @@
 import NextAuth from "next-auth";
 
-import Credentials from "next-auth/providers/credentials";
+import { Providers } from "@/lib/auth/providers";
 
 export const {
   handlers: { GET, POST },
   auth,
 } = NextAuth({
-  providers: [Credentials],
+  providers: [Providers.CredentialsNextAuth],
 });
