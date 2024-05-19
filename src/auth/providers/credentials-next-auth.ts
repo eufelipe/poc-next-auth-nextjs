@@ -1,3 +1,5 @@
+import db from "@/lib/db";
+import UserService from "@/services/user.service";
 import Credentials from "next-auth/providers/credentials";
 
 export default Credentials({
@@ -14,11 +16,15 @@ export default Credentials({
     },
   },
 
-  authorize() {
-    return {
-      id: "1",
-      name: "John Doe",
-      email: "john.doe@example.com",
-    };
+  async authorize(credentials) {
+    const email = String(credentials.email);
+    const password = String(credentials.password);
+
+    const user = await UserService.authorize({
+      email,
+      password,
+    });
+
+    return user;
   },
 });
