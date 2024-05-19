@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { RegisterFormInputs, schema } from "./validation.scheme";
+import createUserAction from "./_actions/create-user-action";
 
 export const useRegister = () => {
   const {
@@ -12,8 +13,10 @@ export const useRegister = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<RegisterFormInputs> = (data) => {
+  const onSubmit: SubmitHandler<RegisterFormInputs> = async (data) => {
     console.log(data);
+
+    await createUserAction(data);
   };
 
   return {
