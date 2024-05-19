@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 
-import { Providers } from "@/lib/auth/providers";
+import { Providers } from "@/auth/providers";
 
 export const {
   handlers: { GET, POST },
