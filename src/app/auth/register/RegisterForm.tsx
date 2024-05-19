@@ -1,12 +1,14 @@
 import React from "react";
 
-import FormInput from "@/app/components/form/FormInput";
-import { useRegister } from "./useRegister";
-import { RegisterFormInputs } from "./validation.scheme";
 import Link from "next/link";
 
+import { useRegister } from "./useRegister";
+import { RegisterFormInputs } from "./validation.scheme";
+import { FormInput } from "@/app/components";
+
 const RegisterForm: React.FC = () => {
-  const { onSubmit, register, errors, handleSubmit } = useRegister();
+  const { onSubmit, register, errors, handleSubmit, registerError } =
+    useRegister();
 
   return (
     <>
@@ -15,14 +17,14 @@ const RegisterForm: React.FC = () => {
         className="mt-10 space-y-4 w-full max-w-sm"
       >
         <FormInput<RegisterFormInputs>
-          name="Name"
+          name="name"
           label="Name"
           register={register}
           required
           errors={errors}
         />
         <FormInput<RegisterFormInputs>
-          name="Email"
+          name="email"
           label="Email"
           register={register}
           required
@@ -30,13 +32,20 @@ const RegisterForm: React.FC = () => {
           errors={errors}
         />
         <FormInput<RegisterFormInputs>
-          name="Password"
+          name="password"
           label="Password"
           register={register}
           required
           type="password"
           errors={errors}
         />
+
+        {!!registerError && (
+          <div className="alert alert-error shadow-lg mt-4">
+            <span>{registerError}</span>
+          </div>
+        )}
+
         <button type="submit" className="btn btn-primary w-full">
           Registrar
         </button>

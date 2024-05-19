@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 import RegisterForm from "./RegisterForm";
 
 export default function Register() {
