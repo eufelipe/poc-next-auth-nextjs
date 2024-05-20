@@ -5,6 +5,7 @@ import { Providers } from "@/auth/providers";
 export const {
   handlers: { GET, POST },
   auth,
+  signIn,
 } = NextAuth({
   providers: [Providers.CredentialsNextAuth],
 });

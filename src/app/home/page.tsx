@@ -65,7 +65,7 @@ export default function Home() {
           </button>
         </Link>
         <Link href="/auth/credentials-server">
-          <button disabled className="btn btn-primary w-full mb-4">
+          <button className="btn btn-primary w-full mb-4">
             Login com Credenciais (Server Component)
           </button>
         </Link>
